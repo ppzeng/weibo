@@ -1,6 +1,5 @@
 package com.nowcoder.weibo.controller;
 
-import com.nowcoder.weibo.service.ToutiaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,11 +20,9 @@ public class IndexController {
     @Autowired
     private ToutiaoService toutiaoService;
 
-    @RequestMapping(path={"/","/index"})
-    @ResponseBody
+    @RequestMapping("/home")
     public String index(HttpSession session){
-        return "Hello NowCoder,"+session.getAttribute("msg")
-                +"<br>say: "+toutiaoService.say();
+        return "home";
     }
     @RequestMapping(value="/profile/{groupId}/{userId}")
     @ResponseBody
